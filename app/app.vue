@@ -39,13 +39,19 @@ useHead(() => ({
     },
     {
       rel: 'icon',
-      type: 'image/png',
-      href: '/icon-192.png',
+      type: 'image/svg+xml',
+      href: '/images/favicons/favicon.svg',
     },
-    {
-      rel: 'apple-touch-icon',
-      href: '/apple-touch-icon.png',
-    },
+    // We need PNGs per theme because iOS ignores SVG favicons and a PNG only has one look
+    ...(['light', 'dark'] as const).flatMap((colorScheme) => {
+      const media = `(prefers-color-scheme: ${colorScheme})`
+      const directory = `/images/favicons/${colorScheme}`
+      return [
+        { rel: 'icon', type: 'image/png', sizes: '16x16', media, href: `${directory}/favicon-16x16.png` },
+        { rel: 'icon', type: 'image/png', sizes: '32x32', media, href: `${directory}/favicon-32x32.png` },
+        { rel: 'apple-touch-icon', sizes: '180x180', media, href: `${directory}/apple-touch-icon.png` },
+      ]
+    }),
   ],
 }))
 </script>
