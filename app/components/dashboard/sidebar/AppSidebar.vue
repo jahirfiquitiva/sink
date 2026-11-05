@@ -64,7 +64,7 @@ const settingsItems = computed<NavItem[]>(() => [
                 "
               >
                 <img
-                  src="/sink.png"
+                  src="/images/favicons/favicon.svg"
                   alt=""
                   width="32"
                   height="32"
