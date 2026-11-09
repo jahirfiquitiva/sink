@@ -27,7 +27,7 @@ export default defineConfig({
     hostname: siteUrl,
   },
   head: [
-    ['link', { rel: 'icon', href: 'https://sink.cool/favicon.ico', sizes: 'any' }],
+    ['link', { rel: 'icon', type: 'image/png', href: 'https://jahir.dev/images/favicons/light/favicon.png' }],
   ],
   locales: {
     'root': {
